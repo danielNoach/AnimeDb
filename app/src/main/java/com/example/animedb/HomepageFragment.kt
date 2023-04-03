@@ -10,6 +10,7 @@ import com.example.animedb.databinding.HomepageLayoutBinding
 
 class HomepageFragment : Fragment() {
 
+    private var x = 1
     private var _binding : HomepageLayoutBinding? = null
     private val binding get() = _binding!!
 
