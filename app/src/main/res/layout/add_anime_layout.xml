@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
             android:hint="Enter Anime Title"
+            android:inputType="text"
             android:id="@+id/Anime_title"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -33,9 +34,43 @@
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
             android:hint="Enter Anime Description"
+            android:inputType="text"
             android:id="@+id/Anime_Desc"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@android:color/white"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Enter Number of Episodes"
+            android:inputType="number"
+            android:id="@+id/Anime_ep_number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundColor="@android:color/white"
+        android:layout_marginTop="10dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:hint="Enter Released Year"
+            android:inputType="number"
+            android:id="@+id/Anime_year_rel"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:layout_width="wrap_content"

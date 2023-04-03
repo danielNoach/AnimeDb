@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.animedb.databinding.HomepageLayoutBinding
 
 class HomepageFragment : Fragment() {
 
-    private var x = 1
     private var _binding : HomepageLayoutBinding? = null
     private val binding get() = _binding!!
 
@@ -31,6 +33,30 @@ class HomepageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.homepageRecycler.adapter = AnimeAdapter(ItemManager.Animes)
+        binding.homepageRecycler.layoutManager = LinearLayoutManager(requireContext())
+
+        ItemTouchHelper(object : ItemTouchHelper.Callback(){
+
+            override fun getMovementFlags(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder
+            ) = makeFlag(ItemTouchHelper.ACTION_STATE_SWIPE, ItemTouchHelper.LEFT)
+
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                ItemManager.remove(viewHolder.adapterPosition)
+                binding.homepageRecycler.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
+            }
+        }).attachToRecyclerView(binding.homepageRecycler)
     }
 
     override fun onDestroyView() {
