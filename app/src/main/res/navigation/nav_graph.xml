@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homepageFragment">
+
+    <fragment
+        android:id="@+id/homepageFragment"
+        android:name="com.example.animedb.HomepageFragment"
+        android:label="homepage_layout"
+        tools:layout="@layout/homepage_layout" >
+        <action
+            android:id="@+id/action_homepageFragment_to_addanimeFragment"
+            app:destination="@id/addanimeFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/addanimeFragment"
+        android:name="com.example.animedb.AddanimeFragment"
+        android:label="add_anime_layout"
+        tools:layout="@layout/add_anime_layout" >
+        <action
+            android:id="@+id/action_addanimeFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/homepageFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
