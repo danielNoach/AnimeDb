@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -34,8 +35,14 @@ class HomepageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.homepageRecycler.adapter = AnimeAdapter(ItemManager.Animes)
+        binding.homepageRecycler.adapter = AnimeAdapter(ItemManager.Animes, object : AnimeAdapter.AnimeListener{
+            override fun onAnimeItemClick(index: Int) {
+                findNavController().navigate((R.id.action_homepageFragment_to_animePageFragment)
+                    , bundleOf("anime" to index))            }
+
+        })
         binding.homepageRecycler.layoutManager = LinearLayoutManager(requireContext())
+
 
         ItemTouchHelper(object : ItemTouchHelper.Callback(){
 
@@ -56,8 +63,11 @@ class HomepageFragment : Fragment() {
                 ItemManager.remove(viewHolder.adapterPosition)
                 binding.homepageRecycler.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
             }
+
         }).attachToRecyclerView(binding.homepageRecycler)
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

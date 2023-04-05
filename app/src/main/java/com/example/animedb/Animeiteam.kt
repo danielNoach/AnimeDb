@@ -14,4 +14,6 @@ object ItemManager {
     fun remove(index:Int) {
         Animes.removeAt(index)
     }
+
+
 }

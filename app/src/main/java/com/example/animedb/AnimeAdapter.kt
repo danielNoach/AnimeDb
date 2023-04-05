@@ -1,24 +1,40 @@
 package com.example.animedb
 
+import android.content.DialogInterface
 import android.net.Uri
 import android.view.LayoutInflater
+import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.animedb.databinding.AnimeCardLayoutBinding
 
 
-class AnimeAdapter (val Animeitems:List<Animeitem>) : RecyclerView.Adapter<AnimeAdapter.AnimeViewHolder>(){
+class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener) : RecyclerView.Adapter<AnimeAdapter.AnimeViewHolder>(){
+    interface AnimeListener{
+        fun onAnimeItemClick(index: Int)
+    }
 
-    class AnimeViewHolder(private val binding: AnimeCardLayoutBinding)
-        :RecyclerView.ViewHolder(binding.root){
-            fun bind(Animeitem : Animeitem) {
+    inner class AnimeViewHolder(private val binding: AnimeCardLayoutBinding)
+        :RecyclerView.ViewHolder(binding.root), View.OnClickListener{
+
+        init {
+            binding.root.setOnClickListener(this)
+        }
+
+            fun bind(Animeitem : Animeitem)
+            {
                 binding.animecardTitle.text = Animeitem.title
                 binding.animecardDesc.text = Animeitem.description
                 Glide.with(binding.root).load(Animeitem.photo).circleCrop().into(binding.animecardImage)
                 //TODO:Load the imag,ep, rel
             }
+
+        override fun onClick(v: View?) {
+            callBack.onAnimeItemClick(adapterPosition)
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         AnimeViewHolder(AnimeCardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
