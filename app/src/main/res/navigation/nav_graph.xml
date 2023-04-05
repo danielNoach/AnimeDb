@@ -17,6 +17,9 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homepageFragment_to_animePageFragment"
+            app:destination="@id/animePageFragment" />
     </fragment>
     <fragment
         android:id="@+id/addanimeFragment"
@@ -33,4 +36,9 @@
             app:popUpTo="@id/homepageFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/animePageFragment"
+        android:name="com.example.animedb.AnimePageFragment"
+        android:label="anime_page"
+        tools:layout="@layout/anime_page" />
 </navigation>
