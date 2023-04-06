@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="30dp"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AnimePageFragment"
+    tools:context=".ui.anime_page.AnimePageFragment"
     android:background="#cacb">
 
     <androidx.cardview.widget.CardView
