@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homepageFragment"
-        android:name="com.example.animedb.HomepageFragment"
+        android:name="com.example.animedb.ui.HomepageFragment"
         android:label="homepage_layout"
         tools:layout="@layout/homepage_layout" >
         <action
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/addanimeFragment"
-        android:name="com.example.animedb.AddanimeFragment"
+        android:name="com.example.animedb.ui.add_anime.AddanimeFragment"
         android:label="add_anime_layout"
         tools:layout="@layout/add_anime_layout" >
         <action
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/animePageFragment"
-        android:name="com.example.animedb.AnimePageFragment"
+        android:name="com.example.animedb.ui.anime_page.AnimePageFragment"
         android:label="anime_page"
         tools:layout="@layout/anime_page" />
 </navigation>

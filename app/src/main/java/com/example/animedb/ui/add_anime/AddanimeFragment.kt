@@ -1,4 +1,4 @@
-package com.example.animedb
+package com.example.animedb.ui.add_anime
 
 import android.content.Intent
 import android.net.Uri
@@ -7,17 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.animedb.Animeitem
+import com.example.animedb.R
 import com.example.animedb.databinding.AddAnimeLayoutBinding
-import com.example.animedb.databinding.HomepageLayoutBinding
+import com.example.animedb.ui.AnimeItemsViewModel
 
 class AddanimeFragment : Fragment(){
 
     private var _binding : AddAnimeLayoutBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: AnimeItemsViewModel by activityViewModels()
 
     private var imageUri : Uri? = null
 
@@ -38,10 +42,12 @@ class AddanimeFragment : Fragment(){
 
         binding.AddAnimeBtn.setOnClickListener{
 
-            val animeitem = Animeitem(binding.AnimeTitle.text.toString(),
+            val anime = Animeitem(binding.AnimeTitle.text.toString(),
             binding.AnimeDesc.text.toString(),null,null,imageUri.toString())
 
-            ItemManager.add(animeitem)
+            viewModel.addAnimeItem(anime)
+
+            //ItemManager.add(animeitem)
 
             findNavController().navigate(R.id.action_addanimeFragment_to_homepageFragment)
         }

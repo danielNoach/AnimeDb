@@ -1,13 +1,11 @@
-package com.example.animedb
+package com.example.animedb.ui.adapter
 
-import android.content.DialogInterface
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.animedb.Animeitem
 import com.example.animedb.databinding.AnimeCardLayoutBinding
 
 
@@ -35,6 +33,9 @@ class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener)
             callBack.onAnimeItemClick(adapterPosition)
         }
     }
+
+    fun animeItemAt(position: Int) = Animeitems[position]
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         AnimeViewHolder(AnimeCardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
