@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.animedb.R
 import com.example.animedb.databinding.HomepageLayoutBinding
 import com.example.animedb.ui.adapter.AnimeAdapter
+import com.google.android.material.snackbar.Snackbar
 
 class HomepageFragment : Fragment() {
 
@@ -69,10 +71,18 @@ class HomepageFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-//                ItemManager.remove(viewHolder.adapterPosition)
-               // binding.homepageRecycler.adapter!!.notifyItemRemoved(viewHolder.adapterPosition)
                 val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(viewHolder.adapterPosition)
-                viewModel.deleteAnimeItem(animeItem)
+
+                val builder = AlertDialog.Builder(viewHolder.itemView.context)
+                builder.setTitle("Delete  ${animeItem.title}")
+                builder.setMessage("Are you sure you want to delete ${animeItem.title} from your list?")
+                builder.setPositiveButton("Yes") { dialog, which ->
+                    viewModel.deleteAnimeItem(animeItem)
+                }
+                builder.setNegativeButton("No") { dialog, which ->
+                    (binding.homepageRecycler.adapter as AnimeAdapter).notifyDataSetChanged()
+                }
+                builder.show()
             }
 
         }).attachToRecyclerView(binding.homepageRecycler)

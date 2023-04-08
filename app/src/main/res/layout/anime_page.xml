@@ -13,6 +13,7 @@
         android:layout_height="match_parent"
         app:cardCornerRadius="20dp">
         <LinearLayout
+            android:padding="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
@@ -25,21 +26,74 @@
                 android:textSize="25sp"
                 android:layout_margin="10dp"
                 android:textStyle="bold"/>
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:id="@+id/photo"
+                android:src="@mipmap/ic_launcher"
+                />
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="Released Year:"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rel_year_animePage"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="  2017"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="Number of Episodes:"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ep_number_animePage"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:text="  2017"/>
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/description"
                 android:gravity="center"
                 android:textSize="25sp"
-                android:layout_margin="10dp"
+                android:layout_marginTop="15dp"
                 android:textStyle="italic"
                 />
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="15dp"
-                android:id="@+id/photo"
-                />
+
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
         

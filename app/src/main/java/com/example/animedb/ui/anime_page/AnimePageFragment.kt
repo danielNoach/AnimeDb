@@ -34,6 +34,8 @@ class AnimePageFragment: Fragment() {
         viewModel.chosenAnimeItem.observe(viewLifecycleOwner){
             binding.title.text = it.title
             binding.description.text = it.description
+            binding.epNumberAnimePage.text = it.number_of_episodes
+            binding.relYearAnimePage.text = it.release_year
             Glide.with(requireContext()).load(it.photo).circleCrop().into(binding.photo)
         }
     }
