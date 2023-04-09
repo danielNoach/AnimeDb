@@ -40,8 +40,9 @@ class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         AnimeViewHolder(AnimeCardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-    override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: AnimeViewHolder, position: Int)=
         holder.bind(Animeitems[position])
+
 
     override fun getItemCount() =
         Animeitems.size

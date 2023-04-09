@@ -40,5 +40,18 @@
         android:id="@+id/animePageFragment"
         android:name="com.example.animedb.ui.anime_page.AnimePageFragment"
         android:label="anime_page"
-        tools:layout="@layout/anime_page" />
+        tools:layout="@layout/anime_page" >
+        <action
+            android:id="@+id/action_animePageFragment_to_updateFragment2"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.animedb.ui.update.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_homepageFragment"
+            app:destination="@id/homepageFragment" />
+    </fragment>
 </navigation>
