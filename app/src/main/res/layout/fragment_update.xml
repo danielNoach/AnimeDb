@@ -94,6 +94,6 @@
         android:text="Update"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:id="@+id/Update__anime_btn"/>
+        android:id="@+id/Update_anime_btn"/>
 
 </LinearLayout>

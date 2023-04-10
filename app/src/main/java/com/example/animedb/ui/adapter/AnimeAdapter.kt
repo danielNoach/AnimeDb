@@ -2,6 +2,7 @@ package com.example.animedb.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnLongClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -12,13 +13,15 @@ import com.example.animedb.databinding.AnimeCardLayoutBinding
 class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener) : RecyclerView.Adapter<AnimeAdapter.AnimeViewHolder>(){
     interface AnimeListener{
         fun onAnimeItemClick(index: Int)
+        fun onAnimeItemLongClick(index: Int)
     }
 
     inner class AnimeViewHolder(private val binding: AnimeCardLayoutBinding)
-        :RecyclerView.ViewHolder(binding.root), View.OnClickListener{
+        :RecyclerView.ViewHolder(binding.root), View.OnClickListener, View.OnLongClickListener {
 
         init {
             binding.root.setOnClickListener(this)
+            binding.root.setOnLongClickListener(this)
         }
 
             fun bind(Animeitem : Animeitem)
@@ -29,9 +32,15 @@ class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener)
                 //TODO:Load the imag,ep, rel
             }
 
+
+        override fun onLongClick(p0: View?): Boolean {
+            callBack.onAnimeItemClick(adapterPosition)
+            return true
+        }
         override fun onClick(v: View?) {
             callBack.onAnimeItemClick(adapterPosition)
         }
+
     }
 
     fun animeItemAt(position: Int) = Animeitems[position]

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -44,11 +45,20 @@ class HomepageFragment : Fragment() {
 
         viewModel.animeItems?.observe(viewLifecycleOwner){
             binding.homepageRecycler.adapter = AnimeAdapter(it, object : AnimeAdapter.AnimeListener{
+
+                override fun onAnimeItemLongClick(index: Int) {
+                    //Toast.makeText(context, "Long click on item ${animeItem.title}", Toast.LENGTH_SHORT).show()
+                    val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
+                    viewModel.setAnimeItem(animeItem)
+                    findNavController().navigate((R.id.action_homepageFragment_to_updateFragment))
+                }
+
                 override fun onAnimeItemClick(index: Int) {
                     val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
                     viewModel.setAnimeItem(animeItem)
                     findNavController().navigate((R.id.action_homepageFragment_to_animePageFragment))
                 }
+
             })
             binding.homepageRecycler.layoutManager = LinearLayoutManager(requireContext())
 
