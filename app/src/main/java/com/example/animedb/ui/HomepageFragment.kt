@@ -47,7 +47,6 @@ class HomepageFragment : Fragment() {
             binding.homepageRecycler.adapter = AnimeAdapter(it, object : AnimeAdapter.AnimeListener{
 
                 override fun onAnimeItemLongClick(index: Int) {
-                    //Toast.makeText(context, "Long click on item ${animeItem.title}", Toast.LENGTH_SHORT).show()
                     val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
                     viewModel.setAnimeItem(animeItem)
                     findNavController().navigate((R.id.action_homepageFragment_to_updateFragment))

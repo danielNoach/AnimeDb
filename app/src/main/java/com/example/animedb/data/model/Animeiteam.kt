@@ -23,15 +23,3 @@ data class Animeitem (
     var id: Int = 0
     }
 
-//object ItemManager {
-//
-//    val Animes : MutableList<Animeitem> = mutableListOf()
-//
-//    fun add(Animeitem : Animeitem) {
-//        Animes.add(Animeitem)
-//    }
-//
-//    fun remove(index:Int) {
-//        Animes.removeAt(index)
-//    }
-//}

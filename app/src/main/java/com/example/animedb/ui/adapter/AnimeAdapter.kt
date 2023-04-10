@@ -34,7 +34,7 @@ class AnimeAdapter (val Animeitems:List<Animeitem>, val callBack: AnimeListener)
 
 
         override fun onLongClick(p0: View?): Boolean {
-            callBack.onAnimeItemClick(adapterPosition)
+            callBack.onAnimeItemLongClick(adapterPosition)
             return true
         }
         override fun onClick(v: View?) {
