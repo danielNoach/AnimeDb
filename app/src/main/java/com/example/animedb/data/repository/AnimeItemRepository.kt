@@ -4,6 +4,8 @@ import android.app.Application
 import com.example.animedb.Animeitem
 import com.example.animedb.data.local_db.AnimeItemDataBase
 import com.example.animedb.data.local_db.AnimeItemsDao
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class AnimeItemRepository(application: Application) {
 
@@ -22,6 +24,10 @@ class AnimeItemRepository(application: Application) {
 
     fun deleteAnimeItem(anime: Animeitem) {
         animeItemDao?.deleteAnime(anime)
+    }
+
+    fun updateAnimeItem(anime: Animeitem){
+            animeItemDao?.updateAnime(anime)
     }
 
     fun getAnimeItem(id: Int)  = animeItemDao?.getItem(id)

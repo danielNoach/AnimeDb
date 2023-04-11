@@ -4,8 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.animedb.Animeitem
 import com.example.animedb.data.repository.AnimeItemRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AnimeItemsViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -15,16 +18,26 @@ class AnimeItemsViewModel(application: Application) : AndroidViewModel(applicati
 
     private val _chosenAnimeItem = MutableLiveData<Animeitem>()
     val chosenAnimeItem: LiveData<Animeitem> get() = _chosenAnimeItem
+
+
     fun setAnimeItem(anime: Animeitem){
         _chosenAnimeItem.value = anime
     }
 
     fun addAnimeItem(anime: Animeitem){
-        repo.addAnimeItem(anime)
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.addAnimeItem(anime)
+        }
     }
 
     fun deleteAnimeItem(anime: Animeitem){
         repo.deleteAnimeItem(anime)
     }
+
+    fun updateAnimeItem(anime: Animeitem){
+            repo.updateAnimeItem(anime)
+    }
+
+
 
 }

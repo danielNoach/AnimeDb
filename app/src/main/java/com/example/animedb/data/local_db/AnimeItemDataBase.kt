@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.animedb.Animeitem
 
-@Database(entities = arrayOf(Animeitem::class), version = 1, exportSchema = false)
+@Database(entities = [Animeitem::class], version = 1, exportSchema = false)
 abstract class AnimeItemDataBase: RoomDatabase() {
 
     abstract fun animeItemsDao() : AnimeItemsDao
@@ -17,7 +17,9 @@ abstract class AnimeItemDataBase: RoomDatabase() {
         private var instance: AnimeItemDataBase? = null
 
         fun getDatabase(context: Context) = instance ?: synchronized(this) {
-            Room.databaseBuilder(context.applicationContext, AnimeItemDataBase::class.java, "animeItems_db").allowMainThreadQueries().build()
+            Room.databaseBuilder(context.applicationContext, AnimeItemDataBase::class.java, "animeItems_db")
+                .allowMainThreadQueries()
+                .build()
         }
     }
 }

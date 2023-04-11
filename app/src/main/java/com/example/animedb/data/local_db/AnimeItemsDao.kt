@@ -14,7 +14,7 @@ interface AnimeItemsDao {
     fun deleteAnime(vararg animeItems: Animeitem)
 
     @Update
-    fun updateAnime(anime: Animeitem)
+     fun updateAnime(anime: Animeitem)
 
     @Query("SELECT * from AnimeItems ORDER BY title ASC")
     fun getAnimeItems(): LiveData<List<Animeitem>>

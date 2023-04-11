@@ -42,9 +42,14 @@ class AddanimeFragment : Fragment(){
 
         binding.AddAnimeBtn.setOnClickListener{
 
-            val anime = Animeitem(binding.AnimeTitle.text.toString(),
-            binding.AnimeDesc.text.toString(),binding.AnimeEpNumber.text.toString()
-                ,binding.AnimeYearRel.text.toString(),imageUri.toString())
+            val anime = Animeitem(
+                binding.AnimeTitle.text.toString(),
+                binding.AnimeDesc.text.toString(),
+                binding.AnimeEpNumber.text.toString(),
+                binding.AnimeYearRel.text.toString(),
+                imageUri.toString()
+            )
+
 
             viewModel.addAnimeItem(anime)
 
