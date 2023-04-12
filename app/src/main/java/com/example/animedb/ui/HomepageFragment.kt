@@ -31,7 +31,7 @@ class HomepageFragment : Fragment() {
     ): View? {
         _binding = HomepageLayoutBinding.inflate(inflater, container,false)
 
-        binding.AddFlpatingBtn.setOnClickListener{
+        binding.AddFloatingBtn.setOnClickListener{
             findNavController().navigate(R.id.action_homepageFragment_to_addanimeFragment)
         }
 

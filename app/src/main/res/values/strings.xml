@@ -2,4 +2,19 @@
     <string name="app_name">AnimeDb</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_anime_title">Edit Anime Title</string>
+    <string name="edit_anime_description">Edit Anime Description</string>
+    <string name="edit_number_of_episodes">Edit Number of Episodes</string>
+    <string name="edit_released_year">Edit Released Year</string>
+    <string name="edit_image">Edit image</string>
+    <string name="update">Update</string>
+    <string name="enter_anime_title">Enter Anime Title</string>
+    <string name="enter_anime_description">Enter Anime Description</string>
+    <string name="enter_number_of_episodes">Enter Number of Episodes</string>
+    <string name="enter_released_year">Enter Released Year</string>
+    <string name="add_image">Add image</string>
+    <string name="add_anime">Add Anime</string>
+    <string name="released_year">Released Year:</string>
+    <string name="_2017">2017</string>
+    <string name="number_of_episodes">Number of Episodes:</string>
 </resources>
