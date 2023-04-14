@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.update.UpdateFragment"
+    >
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.add_anime.AddanimeFragment"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -17,9 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-            android:hint="@string/edit_anime_title"
+            android:hint="@string/enter_anime_title"
             android:inputType="text"
-            android:id="@+id/Update_Anime_title"/>
+            android:id="@+id/Anime_title"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -33,9 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-            android:hint="@string/edit_anime_description"
+            android:hint="@string/enter_anime_description"
             android:inputType="text"
-            android:id="@+id/Update_Anime_Desc"/>
+            android:id="@+id/Anime_Desc"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,9 +53,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-            android:hint="@string/edit_number_of_episodes"
+            android:hint="@string/enter_number_of_episodes"
             android:inputType="number"
-            android:id="@+id/Update_Anime_ep_number"/>
+            android:id="@+id/Anime_ep_number"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,9 +69,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
-            android:hint="@string/edit_released_year"
+            android:hint="@string/enter_released_year"
             android:inputType="number"
-            android:id="@+id/Update_Anime_year_rel"/>
+            android:id="@+id/Anime_year_rel"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,25 +79,26 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/edit_image"
+        android:text="@string/add_image"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:id="@+id/Update_Image_Btn"/>
-
+        android:id="@+id/AddImage_Btn"/>
+    
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:src="@mipmap/ic_launcher"
-        android:id="@+id/Update_image_added"/>
+        android:id="@+id/image_added"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/update"
+        android:text="@string/add_anime"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:id="@+id/Update_anime_btn"/>
+        android:id="@+id/Add_anime_btn"/>
 
 </LinearLayout>
+</ScrollView>
