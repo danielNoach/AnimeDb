@@ -1,99 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.add_anime.AddanimeFragment"
+    android:background="@color/black"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ui.add_anime.AddanimeFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/lato_bold"
+        android:paddingTop="10dp"
+        android:text="@string/add_new_anime"
+        android:textColor="@color/imdb_yellow"
+        android:textSize="20sp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@android:color/white">
+        app:boxStrokeColor="@color/imdb_yellow"
+        app:hintTextColor="@color/imdb_yellow"
+
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Anime_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:backgroundTint="@color/imdb_yellow"
             android:hint="@string/enter_anime_title"
             android:inputType="text"
-            android:id="@+id/Anime_title"/>
+            android:textColor="@color/white"
+            tools:ignore="TouchTargetSizeCheck"
+
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@android:color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/imdb_yellow"
+        app:hintTextColor="@color/imdb_yellow">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Anime_Desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:backgroundTint="@color/imdb_yellow"
             android:hint="@string/enter_anime_description"
             android:inputType="text"
-            android:id="@+id/Anime_Desc"/>
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@android:color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/imdb_yellow"
+        app:hintTextColor="@color/imdb_yellow">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Anime_ep_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:backgroundTint="@color/imdb_yellow"
             android:hint="@string/enter_number_of_episodes"
-            android:inputType="number"
-            android:id="@+id/Anime_ep_number"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@android:color/white"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:boxStrokeColor="@color/imdb_yellow"
+        app:hintTextColor="@color/imdb_yellow">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Anime_year_rel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+            android:backgroundTint="@color/imdb_yellow"
             android:hint="@string/enter_released_year"
-            android:inputType="number"
-            android:id="@+id/Anime_year_rel"/>
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
+        android:id="@+id/AddImage_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_image"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:id="@+id/AddImage_Btn"/>
-    
+        android:backgroundTint="@color/imdb_yellow"
+        android:text="@string/add_image"
+        android:textColor="@color/black" />
+
     <ImageView
+        android:id="@+id/image_added"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:src="@mipmap/ic_launcher"
-        android:id="@+id/image_added"/>
+        android:layout_marginTop="15dp" />
 
     <Button
+        android:id="@+id/Add_anime_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_anime"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:id="@+id/Add_anime_btn"/>
+        android:backgroundTint="@color/imdb_yellow"
+        android:text="@string/add_anime"
+        android:textColor="@color/black" />
 
 </LinearLayout>
