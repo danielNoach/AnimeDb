@@ -4,94 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ui.update.UpdateFragment">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/imdb_yellow"
-        app:hintTextColor="@color/imdb_yellow">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Update_Anime_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/imdb_yellow"
-            android:hint="@string/edit_anime_title"
-            android:inputType="text" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:boxStrokeColor="@color/imdb_yellow"
-        app:hintTextColor="@color/imdb_yellow">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Update_Anime_Desc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/imdb_yellow"
-            android:hint="@string/edit_anime_description"
-            android:inputType="text" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:boxStrokeColor="@color/imdb_yellow"
-        app:hintTextColor="@color/imdb_yellow">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Update_Anime_ep_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/imdb_yellow"
-            android:hint="@string/edit_number_of_episodes"
-            android:inputType="number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:boxStrokeColor="@color/imdb_yellow"
-        app:hintTextColor="@color/imdb_yellow">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Update_Anime_year_rel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/imdb_yellow"
-            android:hint="@string/edit_released_year"
-            android:inputType="number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <Button
-        android:id="@+id/Update_Image_Btn"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:backgroundTint="@color/imdb_yellow"
-        android:text="@string/edit_image"
-        android:textColor="@color/black" />
+        android:fontFamily="@font/lato_bold"
+        android:paddingTop="10dp"
+        android:text="@string/edit_anime_pafeTitle"
+        android:textColor="@color/imdb_yellow"
+        android:textSize="30sp" />
 
-    <ImageView
-        android:id="@+id/Update_image_added"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/imdb_grey"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="6dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/imdb_yellow"
+                android:textColorHint="@color/imdb_yellow">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Update_Anime_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/imdb_yellow"
+                    android:fontFamily="@font/lato_bold"
+                    android:gravity="center"
+                    android:hint="@string/edit_anime_title"
+                    android:inputType="text"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/imdb_yellow"
+                android:textColorHint="@color/imdb_yellow">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Update_Anime_Desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/imdb_yellow"
+                    android:fontFamily="@font/lato_bold"
+                    android:gravity="center"
+                    android:hint="@string/edit_anime_description"
+                    android:inputType="text"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/imdb_yellow"
+                android:textColorHint="@color/imdb_yellow">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Update_Anime_ep_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/imdb_yellow"
+                    android:fontFamily="@font/lato_bold"
+                    android:gravity="center"
+                    android:hint="@string/edit_number_of_episodes"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/imdb_yellow"
+                android:textColorHint="@color/imdb_yellow">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Update_Anime_year_rel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/imdb_yellow"
+                    android:fontFamily="@font/lato_bold"
+                    android:gravity="center"
+                    android:hint="@string/edit_released_year"
+                    android:inputType="number"
+                    android:textColor="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/Update_image_added"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp" />
+
+            <Button
+                android:id="@+id/Update_Image_Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/imdb_yellow"
+                android:fontFamily="@font/lato_bold"
+                android:text="@string/edit_image"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/Update_anime_btn"

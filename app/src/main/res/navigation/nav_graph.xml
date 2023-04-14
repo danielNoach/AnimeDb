@@ -19,10 +19,18 @@
             app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homepageFragment_to_animePageFragment"
-            app:destination="@id/animePageFragment" />
+            app:destination="@id/animePageFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homepageFragment_to_updateFragment"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/addanimeFragment"
@@ -52,6 +60,10 @@
         <action
             android:id="@+id/action_updateFragment_to_homepageFragment"
             app:destination="@id/homepageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
             app:popUpTo="@id/homepageFragment"
             app:popUpToInclusive="true" />
     </fragment>
