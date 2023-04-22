@@ -29,6 +29,9 @@ class AnimeItemRepository(application: Application) {
     fun updateAnimeItem(anime: Animeitem){
             animeItemDao?.updateAnime(anime)
     }
+    fun deleteAll(){
+        animeItemDao?.deleteAll()
+    }
 
     fun getAnimeItem(id: Int)  = animeItemDao?.getItem(id)
 
