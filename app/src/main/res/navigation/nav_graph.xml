@@ -51,7 +51,15 @@
         android:id="@+id/animePageFragment"
         android:name="com.example.animedb.ui.anime_page.AnimePageFragment"
         android:label="anime_page"
-        tools:layout="@layout/anime_page" />
+        tools:layout="@layout/anime_page" >
+        <action
+            android:id="@+id/action_animePageFragment_to_updateFragment"
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.example.animedb.ui.update.UpdateFragment"
@@ -65,6 +73,15 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left"
             app:popUpTo="@id/homepageFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_updateFragment_to_animePageFragment"
+            app:destination="@id/animePageFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"
+            app:popUpTo="@id/animePageFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

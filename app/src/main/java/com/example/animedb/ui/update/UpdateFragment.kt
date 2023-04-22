@@ -66,6 +66,7 @@ class UpdateFragment : Fragment() {
 
 
         viewModel.chosenAnimeItem.observe(viewLifecycleOwner){
+            binding.updateFragmentTitle?.setText("Update ${it.title}")
             binding.UpdateAnimeTitle.setText(it.title)
             binding.UpdateAnimeDesc.setText(it.description)
             binding.UpdateAnimeEpNumber.setText(it.number_of_episodes)

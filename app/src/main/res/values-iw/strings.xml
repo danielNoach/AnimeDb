@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AnimeDb</string>
+    <string name="hello_blank_fragment">שלום מסך ריק</string>
+    <string name="edit_anime_title">הכנס כותרת המעודכן</string>
+    <string name="edit_anime_description">הכנס את התיאור המעודכן</string>
+    <string name="edit_number_of_episodes">הכנס את מספר הפרקים המעודכן</string>
+    <string name="edit_released_year">הכנס את שנת היציאה המעודכנת</string>
+    <string name="edit_image">בחר תמונה חדשה</string>
+    <string name="update">עדכן אנימה</string>
+    <string name="enter_anime_title">הכנס את שם האנימה</string>
+    <string name="enter_anime_description">הכנס תיאור לאנימה</string>
+    <string name="enter_number_of_episodes">הכנס את מספר הפרקים</string>
+    <string name="enter_released_year">הכנס את שנת היציאה</string>
+    <string name="add_image">הוסף תמונה</string>
+    <string name="add_anime">הוסף אנימה</string>
+    <string name="released_year">שנת יציאה: </string>
+    <string name="_2017">2017</string>
+    <string name="number_of_episodes">מספר פרקים: </string>
+    <string name="add_new_anime">הוסף אנימה חדשה</string>
+    <string name="edit_anime_pafeTitle">עדכן אנימה</string>
+</resources>
