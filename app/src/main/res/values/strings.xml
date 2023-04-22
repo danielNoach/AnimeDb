@@ -19,4 +19,9 @@
     <string name="number_of_episodes">Number of Episodes:</string>
     <string name="add_new_anime">ADD NEW ANIME</string>
     <string name="edit_anime_pafeTitle">Update Anime</string>
+    <string name="Title_validation">Title is required</string>
+    <string name="Desc_validation">Description is required</string>
+    <string name="Episode_validation">Episode number is required</string>
+    <string name="Year_validation">Year of release is required</string>
+    <string name="image_validation">Please select an image</string>
 </resources>

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="imdb_yellow">#FFC107</color>
     <color name="imdb_grey">#3E3C3C</color>
+    <color name="error_color">#FFA500</color>
 </resources>
