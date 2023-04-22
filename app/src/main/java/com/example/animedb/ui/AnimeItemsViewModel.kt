@@ -12,32 +12,35 @@ import kotlinx.coroutines.launch
 
 class AnimeItemsViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repo= AnimeItemRepository(application)
+    private val repo = AnimeItemRepository(application)
 
-    val animeItems : LiveData<List<Animeitem>>? = repo.getAnimeItems()
+    val animeItems: LiveData<List<Animeitem>>? = repo.getAnimeItems()
 
     private val _chosenAnimeItem = MutableLiveData<Animeitem>()
     val chosenAnimeItem: LiveData<Animeitem> get() = _chosenAnimeItem
 
 
-    fun setAnimeItem(anime: Animeitem){
+    fun setAnimeItem(anime: Animeitem) {
         _chosenAnimeItem.value = anime
     }
 
-    fun addAnimeItem(anime: Animeitem){
+    fun addAnimeItem(anime: Animeitem) {
         viewModelScope.launch(Dispatchers.IO) {
             repo.addAnimeItem(anime)
         }
     }
 
-    fun deleteAnimeItem(anime: Animeitem){
+    fun deleteAnimeItem(anime: Animeitem) {
         repo.deleteAnimeItem(anime)
     }
 
-    fun updateAnimeItem(anime: Animeitem){
-            repo.updateAnimeItem(anime)
+    fun updateAnimeItem(anime: Animeitem) {
+        repo.updateAnimeItem(anime)
     }
 
+    fun deleteAll() {
+        repo.deleteAll()
+    }
 
 
 }

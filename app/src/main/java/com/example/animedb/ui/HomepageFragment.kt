@@ -1,13 +1,13 @@
 package com.example.animedb.ui
 
+import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 
 class HomepageFragment : Fragment() {
 
-    private var _binding : HomepageLayoutBinding? = null
+    private var _binding: HomepageLayoutBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: AnimeItemsViewModel by activityViewModels()
@@ -29,9 +29,10 @@ class HomepageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = HomepageLayoutBinding.inflate(inflater, container,false)
+        setHasOptionsMenu(true)
+        _binding = HomepageLayoutBinding.inflate(inflater, container, false)
 
-        binding.AddFloatingBtn.setOnClickListener{
+        binding.AddFloatingBtn.setOnClickListener {
             findNavController().navigate(R.id.action_homepageFragment_to_addanimeFragment)
         }
 
@@ -44,28 +45,31 @@ class HomepageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        viewModel.animeItems?.observe(viewLifecycleOwner){
+        viewModel.animeItems?.observe(viewLifecycleOwner) {
 
-            binding.homepageRecycler.adapter = AnimeAdapter(it, object : AnimeAdapter.AnimeListener{
-                override fun onAnimeItemLongClick(index: Int) {
-                    val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
-                    viewModel.setAnimeItem(animeItem)
-                    findNavController().navigate((R.id.action_homepageFragment_to_updateFragment))
-                }
+            binding.homepageRecycler.adapter =
+                AnimeAdapter(it, object : AnimeAdapter.AnimeListener {
+                    override fun onAnimeItemLongClick(index: Int) {
+                        val animeItem =
+                            (binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
+                        viewModel.setAnimeItem(animeItem)
+                        findNavController().navigate((R.id.action_homepageFragment_to_updateFragment))
+                    }
 
-                override fun onAnimeItemClick(index: Int) {
-                    val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
-                    viewModel.setAnimeItem(animeItem)
-                    findNavController().navigate((R.id.action_homepageFragment_to_animePageFragment))
-                }
+                    override fun onAnimeItemClick(index: Int) {
+                        val animeItem =
+                            (binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
+                        viewModel.setAnimeItem(animeItem)
+                        findNavController().navigate((R.id.action_homepageFragment_to_animePageFragment))
+                    }
 
-            })
+                })
             binding.homepageRecycler.layoutManager = LinearLayoutManager(requireContext())
 
         }
 
 
-        ItemTouchHelper(object : ItemTouchHelper.Callback(){
+        ItemTouchHelper(object : ItemTouchHelper.Callback() {
 
             override fun getMovementFlags(
                 recyclerView: RecyclerView,
@@ -81,7 +85,8 @@ class HomepageFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(viewHolder.adapterPosition)
+                val animeItem =
+                    (binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(viewHolder.adapterPosition)
 
                 val builder = AlertDialog.Builder(viewHolder.itemView.context)
                 builder.setTitle("Delete  ${animeItem.title}")
@@ -98,6 +103,23 @@ class HomepageFragment : Fragment() {
         }).attachToRecyclerView(binding.homepageRecycler)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.nav_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.action_delete) {
+            var builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Confirm Delete")
+            builder.setMessage("Are you sure you want to delete all animes?")
+            builder.setPositiveButton("Yes") { p0, p1 ->
+                viewModel.deleteAll()
+                Toast.makeText(requireContext(), "Animes deleted", Toast.LENGTH_SHORT)
+            }.show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
     override fun onDestroyView() {

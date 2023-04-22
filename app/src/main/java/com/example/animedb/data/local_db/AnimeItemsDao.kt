@@ -21,4 +21,6 @@ interface AnimeItemsDao {
 
     @Query("SELECT * from AnimeItems WHERE id = :id")
     fun getItem(id:Int) : Animeitem
+    @Query ("DELETE from AnimeItems")
+    fun deleteAll()
 }
