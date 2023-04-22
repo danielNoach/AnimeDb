@@ -17,6 +17,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/imdb_grey"
             app:cardCornerRadius="20dp">
 
             <LinearLayout
@@ -63,6 +64,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato_bold"
+                        android:textColor="@color/white"
                         android:text="@string/_2017"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -90,6 +92,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato_bold"
                         android:text="@string/_2017"
+                        android:textColor="@color/white"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -101,6 +104,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="72dp"
                     android:fontFamily="@font/lato_bold"
+                    android:textColor="@color/white"
                     android:gravity="center"
                     android:textSize="25sp" />
 

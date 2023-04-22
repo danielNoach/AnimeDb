@@ -24,5 +24,17 @@
     <string name="Episode_validation">אנא הכנס מספר פרקים</string>
     <string name="Year_validation">אנא הכנס שנת יציאה</string>
     <string name="image_validation">אנא בחר תמונה</string>
+    <string name="confirm_delete_all">אשר מחיקה</string>
+    <string name="message_delete_all">האם את/ה בטוח שאתה רוצה למחוק את כל האנימות?</string>
+    <string name="deleted_all">כל האנימות נמחקו בהצלחה</string>
+    <string name="yes">כן</string>
+    <string name="no">לא</string>
+    <string name="delete">מחק את</string>
+    <string name="sure_delete">האם אתה בטוח שאתה רוצה למחוק את</string>
+    <string name="from_list">מהרשימה שלך?</string>
+
+
+
+
 
 </resources>

@@ -25,21 +25,27 @@ class AnimeItemsViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     fun addAnimeItem(anime: Animeitem) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch() {
             repo.addAnimeItem(anime)
         }
     }
 
     fun deleteAnimeItem(anime: Animeitem) {
-        repo.deleteAnimeItem(anime)
+        viewModelScope.launch() {
+            repo.deleteAnimeItem(anime)
+        }
     }
 
     fun updateAnimeItem(anime: Animeitem) {
-        repo.updateAnimeItem(anime)
+        viewModelScope.launch() {
+            repo.updateAnimeItem(anime)
+        }
     }
 
     fun deleteAll() {
-        repo.deleteAll()
+        viewModelScope.launch() {
+            repo.deleteAll()
+        }
     }
 
 

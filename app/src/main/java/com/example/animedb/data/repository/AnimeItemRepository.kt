@@ -11,30 +11,28 @@ class AnimeItemRepository(application: Application) {
 
     private var animeItemDao: AnimeItemsDao?
 
-    init{
+    init {
         val db = AnimeItemDataBase.getDatabase(application.applicationContext)
         animeItemDao = db?.animeItemsDao()
     }
 
     fun getAnimeItems() = animeItemDao?.getAnimeItems()
 
-    fun addAnimeItem(anime: Animeitem) {
+    suspend fun addAnimeItem(anime: Animeitem) {
         animeItemDao?.addAnime(anime)
     }
 
-    fun deleteAnimeItem(anime: Animeitem) {
+    suspend fun deleteAnimeItem(anime: Animeitem) {
         animeItemDao?.deleteAnime(anime)
     }
 
-    fun updateAnimeItem(anime: Animeitem){
-            animeItemDao?.updateAnime(anime)
+    suspend fun updateAnimeItem(anime: Animeitem) {
+        animeItemDao?.updateAnime(anime)
     }
-    fun deleteAll(){
+
+    suspend fun deleteAll() {
         animeItemDao?.deleteAll()
     }
-
-    fun getAnimeItem(id: Int)  = animeItemDao?.getItem(id)
-
 
 
 }

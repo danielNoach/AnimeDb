@@ -89,12 +89,11 @@ class HomepageFragment : Fragment() {
                     (binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(viewHolder.adapterPosition)
 
                 val builder = AlertDialog.Builder(viewHolder.itemView.context)
-                builder.setTitle("Delete  ${animeItem.title}")
-                builder.setMessage("Are you sure you want to delete ${animeItem.title} from your list?")
-                builder.setPositiveButton("Yes") { dialog, which ->
+                builder.setTitle(getString(R.string.delete) + " ${animeItem.title}")
+                builder.setPositiveButton(getString(R.string.yes)) { dialog, which ->
                     viewModel.deleteAnimeItem(animeItem)
                 }
-                builder.setNegativeButton("No") { dialog, which ->
+                builder.setNegativeButton(getString(R.string.no)) { dialog, which ->
                     (binding.homepageRecycler.adapter as AnimeAdapter).notifyDataSetChanged()
                 }
                 builder.show()
@@ -111,12 +110,17 @@ class HomepageFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_delete) {
             var builder = AlertDialog.Builder(requireContext())
-            builder.setTitle("Confirm Delete")
-            builder.setMessage("Are you sure you want to delete all animes?")
-            builder.setPositiveButton("Yes") { p0, p1 ->
+            builder.setTitle(getString(R.string.confirm_delete_all))
+            builder.setMessage(getString(R.string.message_delete_all))
+            builder.setPositiveButton(getString(R.string.yes)) { p0, p1 ->
                 viewModel.deleteAll()
-                Toast.makeText(requireContext(), "Animes deleted", Toast.LENGTH_SHORT)
-            }.show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.deleted_all),
+                    Toast.LENGTH_SHORT
+                )
+            }
+            builder.setNegativeButton(getString(R.string.no)){p0, p1 -> }.show()
         }
         return super.onOptionsItemSelected(item)
     }
