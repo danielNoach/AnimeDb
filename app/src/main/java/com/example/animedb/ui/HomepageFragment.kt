@@ -35,6 +35,7 @@ class HomepageFragment : Fragment() {
             findNavController().navigate(R.id.action_homepageFragment_to_addanimeFragment)
         }
 
+
         return binding.root
     }
 
@@ -44,8 +45,8 @@ class HomepageFragment : Fragment() {
 
 
         viewModel.animeItems?.observe(viewLifecycleOwner){
-            binding.homepageRecycler.adapter = AnimeAdapter(it, object : AnimeAdapter.AnimeListener{
 
+            binding.homepageRecycler.adapter = AnimeAdapter(it, object : AnimeAdapter.AnimeListener{
                 override fun onAnimeItemLongClick(index: Int) {
                     val animeItem =(binding.homepageRecycler.adapter as AnimeAdapter).animeItemAt(index)
                     viewModel.setAnimeItem(animeItem)

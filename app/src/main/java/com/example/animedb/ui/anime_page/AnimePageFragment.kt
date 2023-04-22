@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.animedb.R
 import com.example.animedb.databinding.AnimePageBinding
 import com.example.animedb.ui.AnimeItemsViewModel
 
@@ -37,6 +39,10 @@ class AnimePageFragment: Fragment() {
             binding.epNumberAnimePage.text = it.number_of_episodes
             binding.relYearAnimePage.text = it.release_year
             Glide.with(requireContext()).load(it.photo).circleCrop().into(binding.photo)
+        }
+
+        binding.UpdateAnimeBtn?.setOnClickListener{
+            findNavController().navigate(R.id.action_animePageFragment_to_updateFragment)
         }
     }
 

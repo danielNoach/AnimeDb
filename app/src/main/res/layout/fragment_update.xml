@@ -10,12 +10,12 @@
     tools:context=".ui.update.UpdateFragment">
 
     <TextView
+        android:id="@+id/updateFragment_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/lato_bold"
         android:paddingTop="10dp"
-        android:text="@string/edit_anime_pafeTitle"
         android:textColor="@color/imdb_yellow"
         android:textSize="30sp" />
 
