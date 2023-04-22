@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -99,7 +100,34 @@ class UpdateFragment : Fragment() {
 
     }
     private fun inputCheck(animeItem: Animeitem): Boolean{
-        return !(TextUtils.isEmpty(animeItem.title) && TextUtils.isEmpty(animeItem.description))
+        if (binding.UpdateAnimeTitle.text.isNullOrEmpty()) {
+            binding.UpdateAnimeTitle.error = getString(R.string.Title_validation)
+            return false
+        }
+        if (binding.UpdateAnimeDesc.text.isNullOrEmpty()) {
+            binding.UpdateAnimeDesc.error = getString(R.string.Desc_validation)
+            return false
+        }
+        if (binding.UpdateAnimeEpNumber.text.isNullOrEmpty()) {
+            binding.UpdateAnimeEpNumber.error = getString(R.string.Episode_validation)
+            return false
+        }
+        if (binding.UpdateAnimeYearRel.text.isNullOrEmpty()) {
+            binding.UpdateAnimeYearRel.error = getString(R.string.Year_validation)
+            return false
+        }
+
+        if (imageUri == null || imageUri.toString().isBlank()) {
+            val layoutInflater = LayoutInflater.from(requireContext())
+            val toastView = layoutInflater.inflate(R.layout.toat_error, null)
+            val toast = Toast(requireContext())
+            toast.duration = Toast.LENGTH_SHORT
+            toast.setGravity(Gravity.CENTER, 0, 0)
+            toast.view = toastView
+            toast.show()
+            return false
+        }
+        return true
     }
 
 }

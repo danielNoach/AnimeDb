@@ -19,4 +19,10 @@
     <string name="number_of_episodes">מספר פרקים: </string>
     <string name="add_new_anime">הוסף אנימה חדשה</string>
     <string name="edit_anime_pafeTitle">עדכן אנימה</string>
+    <string name="Title_validation">אנא הכנס כותרת</string>
+    <string name="Desc_validation">אנא הכנס תיאור</string>
+    <string name="Episode_validation">אנא הכנס מספר פרקים</string>
+    <string name="Year_validation">אנא הכנס שנת יציאה</string>
+    <string name="image_validation">אנא בחר תמונה</string>
+
 </resources>
